@@ -1,0 +1,694 @@
+
+.header-image{
+    /* height: 100px; */
+    width: 190px;
+    padding: 20px;
+   
+   
+}
+.header-image img{
+    width: 100%;
+    
+}
+
+.login-heading{
+    /* width: 20%; */
+    display: flex;
+    cursor: pointer;
+}
+.login-heading h2{
+    font-size: 17px;
+    padding-right: 10px;
+    color:rgb(215, 15, 100); ;
+}
+.profile-image{
+    height: 30px;
+    width: 30px;
+    background-color:rgb(215, 15, 100);;;
+    border-radius: 50px;
+    padding-bottom: 10px;
+
+}
+.shoping-icon-div{
+    /* width: 30%; */
+    padding-left: 20px;
+}
+.shoping-icon-div i{
+   color:rgb(215, 15, 100); ;
+}
+.navbar{
+    box-shadow: 0 0.2rem 1rem rgb(0 0 0 / 12%);
+    
+}
+.background-image-panda{
+    background-image: url('../../foodpandaimages/backgroundimage.webp');
+    height: 86vh;
+    background-repeat:  no-repeat   ;
+   /* position: relative; */
+    width: 100%;
+   
+  
+  
+   background-size: cover;
+   /* margin-top: -209px; */
+   /* display: flex !important ; */
+   /* justify-content: center !important; */
+   display: grid;
+   background-position: 7% 90%;
+}
+
+.background-image{
+    width: 100%;
+    /* height: 600px; */
+    height: 100vh;
+}
+@media (max-width:362px){
+    .header-image{
+        width: 100px ;
+    }
+  
+
+}
+.form-container{
+    margin-top: 15%;
+    height: 90%;
+    padding: 20px;
+}
+.form-container h3{
+    width: 60%;
+    letter-spacing: 3px;
+    font-size: 30px;
+    font-weight: 300;
+}
+.input-container{
+    width: 60%;
+    height: 20%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10%;
+    display: flex;
+    margin-top: 3%;
+}
+.input-location {
+    width: 60%;
+    height: 100%;
+}
+.input-location input{
+    height: 100%;
+    width: 100%;
+}
+.twoButton{
+    height: 100%;
+    /* width: 100px; */
+    /* width: 30%; */
+   width: 40%;
+   color: #FF2B85;;
+}
+.twoButton button{
+    height: 100%;
+   width: 43%;
+   background-color: #e21b70;;
+}
+.twoButton button:hover{
+    background-color: white;
+    background-color: lightpink;
+    border: none;
+}
+
+@media (max-width:950px){
+    .input-container{
+        flex-direction: column;
+        height: 20%;
+width: 100%;
+margin-left: -1%;
+margin-top: 10%;
+
+
+    }
+    .input-location{
+        width: 100%;
+    }
+    .twoButton{
+        width: 100%;
+        /* padding-right: 2%; */
+        margin-top: 1%;
+    }
+    .twoButton button{
+        width: 49.5%;
+        margin-left: 0.5%;
+        /* height: 90%; */
+    
+    }
+    .input-container span{
+        display: none;
+    }
+}
+@media(max-width:676px){
+    .twoButton button{
+        width: 49.5%;
+        margin-left: 0.5%;
+    }
+   .twoButton{
+    width: 100%;
+   }
+
+
+}
+@media (max-width:550px){
+    .twoButton button{
+        width: 49.5%;
+        margin-left: 0.5%;
+    }
+}
+@media (max-width:440px){
+    .twoButton button{
+        width: 49%;
+        margin-left: 0.5%;
+    }
+}
+@media (max-width:950px){
+    .form-container h3{
+        font-size: 22px;
+        width: 90%;
+      
+    }
+  
+}
+.bottom-heading{
+    width: 50%;
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+@media (max-width:1250px){
+    .bottom-heading{
+        width: 70%;
+        margin-top: 2%;
+    }
+}
+.background-image2{
+    background-image: url('../../foodpandaimages/bcimage2.webp');
+
+    background-repeat:  no-repeat   ;
+
+    width: 100%;
+   ;
+    height: 50vh;
+    background-size: cover;
+ 
+    display: grid;
+    background-position: 7% 50%;
+ }
+@media (max-width:549px){
+    .background-image2{
+         /* background-position: 7% 50%; */
+         background-position: 100% 100%;
+         display: grid;
+        
+        /* background-size: contain; */
+        background-size: cover;
+        width: 100%;
+     
+}
+}
+@media(max-width:900px){
+    .bottom-heading{
+        width: 100%;
+    }
+}
+@media(max-width:660px){
+    .bottom-heading{
+        font-size: 23px;
+        letter-spacing: 1px;
+       }
+}
+
+.image3-container{
+    width: 100%;
+    height: 50vh;
+    margin-top: 20%;
+
+}
+.image3-heading{
+    width: 100%;
+    font-size: 22px;
+    font-weight: 100;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+}
+.image-container{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4%;
+    /* display: flex; */
+   
+    
+margin: auto;
+  
+
+}
+.image-container div{
+    width: 20%;
+    height: 30vh;
+    
+    border: 1px solid black;
+    border: none;
+ 
+ 
+}
+@media (max-width:1200px){
+    .image-container{
+        flex-direction: column;
+        margin: auto;
+    }
+ .image-container div{
+        width: 98%;
+        margin-top: 3%;
+    }
+}
+@media (max-width:1500px) {
+    .image-container div{
+        height: 22vh;
+    }
+    
+}
+
+@media (max-width:1500px) {
+    .image3-container{
+        margin-top: 30%;
+    }
+    
+}
+
+.bc-image1{
+    background-image: url('../../foodpandaimages/bcimage1.jpg');
+    background-repeat:  no-repeat   ;
+
+    width: 100%;
+   ;
+    height: 50vh;
+    background-size: cover;
+ 
+    display: grid;
+    background-position: 7% 50%;
+}
+.bc-image2{
+    background-image: url('../../foodpandaimages/bcimage2.jpg');
+    background-repeat:  no-repeat   ;
+
+    width: 100%;
+   ;
+    height: 50vh;
+    background-size: cover;
+ 
+    display: grid;
+    background-position: 7% 50%;
+}
+.bc-image3{
+    background-image: url('../../foodpandaimages/bcimage3.jpg');
+    background-repeat:  no-repeat   ;
+
+    width: 100%;
+   ;
+    height: 50vh;
+    background-size: cover;
+ 
+    display: grid;
+    background-position: 7% 50%;
+}
+.bc-image4{
+    background-image: url('../../foodpandaimages/');
+    background-repeat:  no-repeat   ;
+
+    width: 100%;
+   ;
+    height: 50vh;
+    background-size: cover;
+ 
+    display: grid;
+    background-position: 7% 50%;
+
+
+}
+
+
+.inner-div{
+    background-color: white;
+    width: 500px;
+    margin-top: 20%;
+    height: 360px;
+    padding: 20px;
+    margin-left: 10%;
+    box-shadow: 0 0.2rem 1rem rgb(0 0 0 / 12%);
+    border-radius: 10px;
+}
+.main-h1{
+    width: 100%;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 100;
+    margin-bottom: 2%;
+}
+.inner-div p{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 100;
+    width: 100%;
+    
+}
+.inner-div  button {
+    width: 100%;
+    background-color: #e21b70;
+    height: 12%;
+    border: none;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+@media (max-width:1022px){
+    .inner-div{
+        width: 90%;
+        margin: auto;
+        margin-top: 30%;
+    }
+    .image3-container{
+        margin-top: 40%;
+    }
+}
+@media (max-width:524px){
+    .inner-div {
+        height: 300px;
+    }
+    .main-h1{
+        font-size: 22px;
+    }
+    .inner-div p{
+        font-size: 15px;
+        width: 100%;
+    }
+    .inner-div button{
+        height: 10%;
+    }
+}
+@media(max-width:400px){
+    .inner-div{
+        height: 380px;
+    }
+}
+@media(max-width:320px){
+    .inner-div{
+    height: 400px;
+}
+.image3-container{margin-top: 60%;}
+
+}
+
+/* .bc-image1:hover{
+    background-position: 7% 10%;
+    transition: 0.7s;
+
+} */
+.image-container div:hover{
+    background-position: 7% 10%;
+    transition: 0.7s;
+
+}
+.image-container div{padding-top: 15%
+    ;color: white;
+}
+.background-image4{
+    /* background-repeat:  no-repeat   ; */
+
+    width: 100%;
+   ;
+    height: 50vh;
+    /* background-size: cover; */
+ 
+    display: grid;
+    /* background-position: 7% 50%; */
+}
+.pink-container{
+    width: 100%;
+    background-color: #e21b70;
+    height: 50vh;
+    display: flex;
+}
+.para-image4{
+    font-size: 36px;
+    letter-spacing: 1px;
+font-weight: 100;
+text-align: left;
+padding-left: 10%;
+}
+.pink-container img{
+  
+     height: 80vh;
+    width: 50%;
+ margin-left: 30%;
+ margin-top: -5%;
+}
+   
+
+
+@media (max-width:1200px){
+    .background-image4{
+margin-top: 50%;
+    }
+}
+@media (max-width:850px){
+    .background-image4{
+        margin-top: 90%;
+    }
+     
+}
+
+@media (max-width:500px){
+   
+    .para-image4{display: none;}
+    .background-image4{
+        margin-top: 100%;
+    }
+}
+@media (max-width:400px){
+    .background-image4{
+        margin-top: 130%;
+    }
+}
+.pinkcontainerpara{
+    text-align: left;
+    font-size: 30px;
+    letter-spacing: 1px;
+    padding-left: 2%;
+    /* margin-top: 10%; */
+    width: 100%;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 100;
+    margin-top: 10%;
+    padding-left: 15%;
+
+}
+.pinkcontainerpara2{
+    width: 100%;
+    text-align: left;
+    margin-top: 3%;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 15%;
+}
+.Image-mobile{
+    height: 90vh;
+    width: 50%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+.Image-mobile img{
+    height: 100%;
+    width: 100%;
+}
+@media (max-width:1100px){
+   /* .Image-mobile {
+        margin-right: 50%;
+        height: 40vh;
+    } */
+    .pink-container{flex-direction: column;}
+    .pinkcontainerpara{
+        width: 90%;
+        font-size: 25px;
+    }
+    .pinkcontainerpara2{
+        width: 80%;
+    }
+}
+@media (max-width:450px){
+    .background-image4{
+        margin-top: 150%;
+    }
+}
+.background-image5{
+    background-repeat:  no-repeat   ;
+
+    width: 100%;
+   ;
+    height: 50vh;
+    background-size: cover;
+ 
+    display: grid;
+    margin-top: 20%;
+    background-position: 7% 50%;
+    /* background-image: url('./../../foodpandaimages/bcimage5.webp'); */
+    /* background-image: url('../../foodpandaimages/bcimage5.webp'); */
+}
+.paragraph-container{
+    width: 100%;
+    align-items: center;
+    margin-top: 20%;
+    padding: 190px;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.paragraph-container li{
+    list-style: none;
+}
+@media(max-width:900px){
+    .paragraph-container {
+        padding: 10px;
+
+    }
+}
+@media (max-width:500px){
+    .paragraph-container h1{
+         font-size: 20px;
+        
+    }
+}
+.logo-bottom-div{
+    width: 100%;
+}
+.logo-bottom-div img{
+    width: 30%;
+    height: 30%;
+    display: flex;
+}
+.bottom-span{
+    text-align: right;
+align-items: right;
+height: 400px;}
+
+/* .bottom-span i{
+    height: 10%;
+    width: 10%;
+} */
+.footer-container{
+    display: flex;
+    padding: 50px;
+    width: 100%;
+    justify-content: 
+    space-around;
+    align-items: left;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top:1px solid darkgray ;
+}
+.footer-container li{
+    list-style: none;
+    color: darkgray;
+}
+.footer-container li:hover{
+    color: #e21b70;
+    cursor: pointer;
+}
+@media (max-width:1200px){
+    .footer-container{
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+    }
+}
+.login-heading{
+    font-size: 20px;
+    color: #e21b70;
+}
+.loginname{
+    font-size: 20px;
+    color: #e21b70;
+}
+
+/* Add these CSS styles to your stylesheet */
+/* Add these CSS styles to your stylesheet */
+
+/* Keep the previous CSS styles for .orderShow and other elements */
+
+.orderShow .btn {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s;
+    width: 100%; /* Make the buttons full width */
+    margin-top: 10px; /* Add some margin for spacing */
+   
+  }
+  
+  .orderShow .btn-primary {
+    background-color: #e21b70;
+    margin: auto;
+
+  }
+  
+  .orderShow .btn-primary:hover {
+    background-color: #c81a63;
+  }
+  
+  .orderShow .btn-danger {
+    background-color: red;
+  }
+  
+  .orderShow .btn-danger:hover {
+    background-color: #cc0000;
+  }
+  
+  /* Styling for the Reject button */
+  .btn-primary.red {
+    background-color: red;
+    margin: auto;
+  }
+  
+  
+  /* Media query for responsiveness on smaller screens */
+  @media (max-width: 768px) {
+    .cardContainer {
+      justify-content: flex-start;
+    }
+  }
+ .twoButton div{
+    color: white;
+    font-weight: bold;
+    border: none;
+    width: 80%;
+    padding: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+ }
+
+
+
+
+
+
+
+ @media (max-width:400px) {
+    .tab{
+        font-size: 10px;
+    }
+    
+ }

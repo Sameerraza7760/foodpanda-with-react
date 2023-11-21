@@ -14,8 +14,9 @@ import {
   addDoc,
   collection,
   getDocs,
+  getDoc,
   updateDoc,
-  deleteDoc
+  deleteDoc,serverTimestamp,query,where,onSnapshot
 } from "firebase/firestore";
 import {
   getStorage,
@@ -108,5 +109,43 @@ keeploggined()
   createUserWithEmailAndPassword,
 doc,setDoc,collection,getDocs,db,
 storage,ref,uploadBytes,getDownloadURL,
-updateDoc,deleteDoc
+updateDoc,deleteDoc,getDoc,
+addDoc,serverTimestamp,query,where,onSnapshot
 }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// rules_version = '2';
+
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     // Allow read and write access to authenticated users for all documents
+//     match /{document=**} {
+//       allow read, write: if request.auth != null;
+//     }
+//   }
+// }

@@ -14,6 +14,8 @@ import ResturentsDetail from "../../pages/Resturents/ResturentsDetail";
 import RestCity from "../../pages/Resturents/RestCity";
 import Tabs from "../../Components/Header/Tabs";
 import Tabuser from "../../Components/Header/Tabuser";
+import Chat from "../../pages/Resturents/Chat";
+import Adminchat from "../../pages/Resturents/Adminchat";
 
 function Router() {
   const router = createBrowserRouter([
@@ -60,6 +62,12 @@ function Router() {
   {
     path:'tabuser',
     element:<Tabuser/>
+  },{
+    path:'chatpage',
+   element:<Chat/>
+  },{
+    path:'/adminchat',
+    element:<Adminchat/>
   }
     
   ]);

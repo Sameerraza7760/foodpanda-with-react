@@ -16,6 +16,7 @@ import {
   updateDoc,
   auth,deleteDoc  
 } from "../../Config/firebase/firebase";
+import { useNavigate } from "react-router-dom";
 import { Switch } from 'antd';
 
 import { Input } from 'antd';
@@ -27,6 +28,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 function Additem() {
+  const navigate=useNavigate()
   const [restItem, setResItem] = useState([]);
   const [restShow,setshowRest]=useState([])
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -210,6 +212,14 @@ setSelectedItemId(id)
 <Button type="primary" onClick={addModal}  style={{height:'50px',width:'150px',marginTop:'10%'}}>
   Add Items
 </Button>
+ <hr />
+
+<h1>{`Resturent ${mode? 'ON':'OFF'}`}</h1>
+
+<Switch checked={mode} onChange={changeResturentMode} /> <br />
+<Button type="primary" style={{ marginTop: '17px' }} onClick={()=>navigate('/adminchat')} >
+      See Messeges
+    </Button>
 <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
   <h1 style={{ width: '100%', fontSize: '17px' }}>Add items in your restaurant</h1>
   <div style={{ height: '400px' }} className="inputContainerOfAddItem">
@@ -238,7 +248,7 @@ setSelectedItemId(id)
      
       <div className="container-Orders" style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'10%'}} >
       {restShow.map((item, index) => (
-         <Card sx={{ maxWidth: 345 }} key={item.id} >
+         <Card sx={{ maxWidth: 345 }} key={item.id} className="cardadItem" >
          <CardMedia
            sx={{ height: 140 }}
            image={item.itemImage}
@@ -269,7 +279,7 @@ setSelectedItemId(id)
         ))}
 </div>
      </div>
-     <Switch checked={mode} onChange={changeResturentMode} />
+
     </>
   );
       }

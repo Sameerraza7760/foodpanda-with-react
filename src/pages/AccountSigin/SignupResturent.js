@@ -10,6 +10,7 @@ doc,setDoc,collection,getDocs,db,
 storage,ref,uploadBytes,getDownloadURL} from '../../Config/firebase/firebase' 
 import { ResturentData } from '../../Redux/useraction/useraction'  
 import { useNavigate } from 'react-router-dom'
+import './style.css'
 import { useDispatch } from 'react-redux'
 <TextField id="filled-basic" label="Filled" variant="filled" />
 function SignupResturent( ) {

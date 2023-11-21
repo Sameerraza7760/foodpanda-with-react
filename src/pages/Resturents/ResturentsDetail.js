@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { auth, swal, setDoc, doc, db, getDocs, collection } from "../../Config/firebase/firebase";
 import Button from '@mui/material/Button';
+import { getDoc } from "firebase/firestore";
 import Drawer from '@mui/material/Drawer';
 import Header from "../../Components/Header/Header";
 
 import { TextField } from "@mui/material";
 
 const ResturentsDetail = () => {
+  const navigate=useNavigate()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -18,10 +20,11 @@ const ResturentsDetail = () => {
 
   const [restItem, setRestItem] = useState([]);
   const [restShow, setRestShow] = useState([]);
-  const [name, setName] = useState([]);
+  const [name, setName] = useState('');
   const [image, setImage] = useState([]);
   const [item, setItem] = useState([]);
   const [currentLocation, setCurrentLocation] = useState([]);
+  
 
   const fetchCurrentLocation = () => {
     if (navigator.geolocation) {
@@ -61,15 +64,20 @@ const ResturentsDetail = () => {
     };
 
     const getRestaurants = async () => {
-      const querySnapshot = await getDocs(collection(db, "Resturants"));
-      const restaurantArray = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
-      restaurantArray.forEach((item) => {
-        if (item.id === id) {
-          setImage(item.restImage);
-          setName(item.restName);
-        }
-      });
+
+      try {
+        const querySnapshot = await getDoc(doc(db, "Resturants", id));
+        const restaurantArray = querySnapshot.data()
+    
+            setImage(restaurantArray.restImage);
+            setName(restaurantArray.restName);
+      } catch (error) {
+        console.error("Error retrieving document:", error);
+      }
+      
+    
+      
     };
 
     fetchRestItems();
@@ -119,11 +127,11 @@ const ResturentsDetail = () => {
 
 
    const deleteItem = (index) => {
-    // Create a copy of the item array
+ 
     const updatedItems = [...item];
-    // Remove the item at the specified index
+
     updatedItems.splice(index, 1);
-    // Update the state with the new list
+
     setItem(updatedItems);}
 
   
@@ -135,8 +143,12 @@ const ResturentsDetail = () => {
           className="image-detail-container"
           style={{ backgroundImage: `url(${image})` }}
         ></div>
-      <h3>
-  <span className="res-Name animated">{name}</span>Items
+      <h3 className="headingOFResturesnt" >
+        
+      <span className="res-Name animated">{name?.toUpperCase()} ITEMS</span>
+
+
+
 </h3>
 
 
@@ -157,11 +169,36 @@ const ResturentsDetail = () => {
 >
   Dashboard
 </Button>
+<Button
+  variant="outlined"
+ 
+  id="btn"
+  style={{
+    color: 'white',
+    backgroundColor: '#e21b70', 
+    border: 'none', 
+    borderRadius: '5px', 
+    padding: '10px 20px', 
+    fontWeight: 'bold', 
+    cursor: 'pointer', 
+    marginTop:'10%',
+    margin:0,
+    marginLeft:'4px'
+  }}
+  onClick={()=>navigate('/chatpage')}
+>
+  Messege
+</Button>
+
+
       <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
         <div style={{ padding: 20 }} className="Drawer" >
         <h1 className='dashboardTitle'>
   Dashboard
 </h1>
+
+
+
 
           <hr />
           {/* Add your content here */}
@@ -209,11 +246,11 @@ const ResturentsDetail = () => {
         <button
   onClick={() => deleteItem(index)}
   style={{
-    backgroundColor: '#e21b70', // Background color
-    color: 'white',            // Text color
-    padding: '8px 16px',       // Padding
-    border: 'none',           // Remove border
-    borderRadius: '4px',       // Add border radius
+    backgroundColor: '#e21b70', 
+    color: 'white',           
+    padding: '8px 16px',      
+    border: 'none',           
+    borderRadius: '4px',      
     cursor: 'pointer',  
     marginLeft:'40%'
   }}
@@ -260,6 +297,7 @@ const ResturentsDetail = () => {
       </div>
       <div>
       <div>
+     
 
     </div>
     </div>

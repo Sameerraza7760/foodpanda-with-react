@@ -38,6 +38,7 @@ function RestaurantShow() {
           justifyContent: "center",
           margin: "auto",
           gap: "20px",
+          marginTop:'52px'
         }}
       >
         {restaurants.length &&

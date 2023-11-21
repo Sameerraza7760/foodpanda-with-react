@@ -77,9 +77,7 @@
     .header-image{
         width: 100px;
     }
-    
-
-
+  
 }
 /* CSS */
 .form-container {
@@ -764,9 +762,7 @@ height: 47px;
 }
 @media (max-width:1070px){
     .siginupResturent-container{flex-direction: column;
-        height: 170vh;
-       
-
+        height: 140vh;
     
     }
     .siginupResturent-container div{

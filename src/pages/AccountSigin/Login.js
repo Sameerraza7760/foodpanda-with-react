@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../Components/Header/Header";
-import { signinFirebase, swal} from "../../Config/firebase/firebase";
+import { signinFirebase, swal } from "../../Config/firebase/firebase";
 
 import { TextField, button } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
@@ -12,7 +12,6 @@ import { useState } from "react";
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
 
   const resturent_Data = useSelector(
     (state) => state.resturentReducer.resturentData
@@ -21,28 +20,24 @@ function Login() {
 
   let [whereToNavigate, setWhereToNavigate] = useState("/showResturent");
   const handleEmail = (e) => {
-    resturent_Data.forEach((item) => {
+    resturent_Data?.forEach((item) => {
       if (item.restEmail === e.target.value) {
         setWhereToNavigate("/additem");
-       
+
         return;
       }
-     
     });
   };
 
   async function signin() {
-   
     var email = document.getElementsByTagName("input")[0].value;
     var password = document.getElementsByTagName("input")[1].value;
-   
+
     try {
       await signinFirebase(email, password);
-      await swal("Congratulations!","Sussesfully Login", "success");
-   
-      navigate(whereToNavigate);
+      await swal("Congratulations!", "Sussesfully Login", "success");
 
-  
+      navigate(whereToNavigate);
     } catch (e) {
       await swal(e.message);
     }

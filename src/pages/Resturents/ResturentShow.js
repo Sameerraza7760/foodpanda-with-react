@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getDocs,collection } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../Config/firebase/firebase";
-import './style.css'
+import "./style.css";
 import Header from "../../Components/Header/Header";
 import Image from "./../../Components/Image/Image";
 import RestaurantCard from "./RestaurantCard";
@@ -38,7 +38,7 @@ function RestaurantShow() {
           justifyContent: "center",
           margin: "auto",
           gap: "20px",
-          marginTop:'52px'
+          marginTop: "52px",
         }}
       >
         {restaurants.length &&

@@ -1014,6 +1014,7 @@ background-color: lightpink;
 
 
   .dropdown:hover .dropdown-menu {
+   
     display: block;
   }
 

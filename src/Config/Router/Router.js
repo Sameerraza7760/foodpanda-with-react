@@ -1,6 +1,5 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import Account from "../../pages/AccountSigin/Account";
 import Home from "../../Components/Home";
 import Signup from "../../pages/AccountSigin/Signup";

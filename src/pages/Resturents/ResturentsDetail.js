@@ -15,7 +15,7 @@ import Drawer from "@mui/material/Drawer";
 import Header from "../../Components/Header/Header";
 import "./style.css";
 
-import { TextField } from "@mui/material";
+import { TextField ,CircularProgress} from "@mui/material";
 
 const ResturentsDetail = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const ResturentsDetail = () => {
   const [image, setImage] = useState([]);
   const [item, setItem] = useState([]);
   const [currentLocation, setCurrentLocation] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const fetchCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -129,6 +129,7 @@ const ResturentsDetail = () => {
       }
 
       console.log("auth==>", auth.currentUser.uid);
+      setLoading(true);
       await setDoc(
         doc(db, "userBuyItems", `${auth.currentUser.uid}${Date.now()}`),
         userDataObj
@@ -136,6 +137,9 @@ const ResturentsDetail = () => {
       await swal("Congratulations!", "Item Successfully Ordered", "success");
     } catch (error) {
       await swal(error.message);
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -277,7 +281,14 @@ const ResturentsDetail = () => {
                 Close
               </Button>
               <Button variant="contained" color="primary" onClick={userData}>
-                Order Here
+                {loading ? (
+                  <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <CircularProgress size={20} style={{ color: "white" }} />
+                    <span>Ordering...</span>
+                  </span>
+                ) : (
+                  "Order Now"
+                )}
               </Button>
             </div>
           </div>

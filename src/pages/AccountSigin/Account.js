@@ -44,7 +44,7 @@ function Account() {
     <>
       <Header />
 
-      <div className="Accounts-container" style={{ height: "85vh" }}>
+      <div className="Accounts-container" style={{ height: "auto" }}>
         <h1 className="accounts-h1">Welcome!</h1>
         <p className="accounts-para" onClick={() => navigate("/Signup")}>
           Sign up or log in to continue

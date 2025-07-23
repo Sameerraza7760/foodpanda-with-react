@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../Components/Header/Header";
-import { TextField } from "@mui/material";
+import { TextField, CircularProgress } from "@mui/material";
 import { SignupFirebase, swal, auth } from "../../Config/firebase/firebase";
 import { useNavigate } from "react-router-dom";
-
 function Signup() {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   async function signUp() {
     var userName = document.getElementById("username").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
+    setLoading(true);
     try {
       await SignupFirebase({ email, password, userName });
       await swal("Congratulations!", "Sussesfully Signup", "success");
@@ -17,11 +18,14 @@ function Signup() {
     } catch (e) {
       await swal(e.message);
     }
+    finally {
+      setLoading(false);
+    }
   }
   return (
     <>
       <Header />
-      <div className="Accounts-container">
+      <div className="Accounts-container" style={{ height: "auto" }} >
         <h1 className="accounts-h1" style={{ color: "#e21b70" }}>
           SIGIN BY TYPING YOUR Username AND Email
         </h1>
@@ -49,11 +53,23 @@ function Signup() {
             color: "white",
             backgroundColor: "#e21b70",
             marginTop: "9%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px", // adds space between loader and text
           }}
           onClick={signUp}
         >
-          Sign up
+          {loading ? (
+            <>
+              <CircularProgress size={20} style={{ color: "white" }} />
+              <span>Signing up...</span>
+            </>
+          ) : (
+            "Sign up"
+          )}
         </button>
+
       </div>
     </>
   );

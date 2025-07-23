@@ -27,7 +27,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-
+import { CircularProgress } from "@mui/material";
 function Additem() {
   const navigate = useNavigate();
   const [restItem, setResItem] = useState([]);
@@ -36,6 +36,7 @@ function Additem() {
   const [modalMode, setModalMode] = useState("");
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [resturentMode, setResturentMode] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState(false);
 
   const changeResturentMode = async () => {
@@ -72,6 +73,8 @@ function Additem() {
 
   const createItems = async () => {
     try {
+      
+      setLoading(true);
       const itemName = document.getElementById("itemname").value;
       const itemPrice = document.getElementById("itemprice").value;
       const itemDescribtion = document.getElementById("itemdescription").value;
@@ -98,6 +101,14 @@ function Additem() {
         }
       }
 
+      if (itemPrice < 0) {
+        await swal("Item Price is Less then 0");
+        return;
+      }
+      if (itemName.length < 3) {
+        await swal("Item Name is Less then 3");
+        return;
+      }
       if (modalMode === "add" && selectedItemId === null) {
         await setDoc(
           doc(db, "ResturentsItems", auth.currentUser.uid + Date.now()),
@@ -118,6 +129,10 @@ function Additem() {
         title: "Oops...",
         text: e.message,
       });
+    }
+    finally {
+      setLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -230,7 +245,15 @@ function Additem() {
               style={{ marginTop: "17px" }}
               onClick={createItems}
             >
-              Add Items
+              {loading ? (
+                <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <CircularProgress size={20} style={{ color: "white" }} />
+                  <span>Adding...</span>
+                </span>
+              ) : (
+                "Add Item"
+              )}
+
             </Button>
           </div>
         </Modal>

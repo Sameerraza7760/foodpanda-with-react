@@ -1,30 +1,32 @@
 import React from "react";
 
-import { TextField } from "@mui/material";
+import { CircularProgress } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   auth,
-  swal,
-  createUserWithEmailAndPassword,
-  doc,
-  setDoc,
   collection,
-  getDocs,
+  createUserWithEmailAndPassword,
   db,
-  storage,
-  ref,
-  uploadBytes,
+  doc,
+  getDocs,
   getDownloadURL,
+  ref,
+  setDoc,
+  storage,
+  swal,
+  uploadBytes,
 } from "../../Config/firebase/firebase";
 import { ResturentData } from "../../Redux/useraction/useraction";
-import { useNavigate } from "react-router-dom";
 import "./style.css";
-import { useDispatch } from "react-redux";
-<TextField id="filled-basic" label="Filled" variant="filled" />;
 function SignupResturent() {
+  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const createResturent = async () => {
     try {
+      
+      setLoading(true);
       const restName = document.getElementById("resturentname").value;
       const restCountry = document.getElementById("country").value;
       const restCity = document.getElementById("city").value;
@@ -52,6 +54,7 @@ function SignupResturent() {
         await swal("Phone Number is Less then 11");
         return;
       }
+      // Create user in Firebase Authentication
       await createUserWithEmailAndPassword(auth, restEmail, restPassword);
       await setDoc(doc(db, "Resturants", auth.currentUser.uid), resturentData);
       await swal("Congratulations!", "Company Account Created", "success");
@@ -72,6 +75,9 @@ function SignupResturent() {
         text: e.message,
       });
     }
+    finally {
+      setLoading(false);
+    }
   };
   const uploadImage = async (image) => {
     const storageRef = ref(storage, `images/${image.name}`);
@@ -80,7 +86,7 @@ function SignupResturent() {
     return url;
   };
   return (
-    <div className="siginupResturent-container" style={{height:'100%'}} >
+    <div className="siginupResturent-container" style={{ height: '100%' }} >
       <div className="signupResturent-para">
         <h1>Partner with us</h1>
         <p>
@@ -92,7 +98,7 @@ function SignupResturent() {
           appeal as localised service with community ambition.
         </p>
       </div>
-      <div className="signupResturent-form" style={{height:'97%'}} >
+      <div className="signupResturent-form" style={{ height: '97%' }} >
         <h3>
           Interested? Fill in the form below to become our partner and increase
           your revenue!
@@ -154,7 +160,7 @@ function SignupResturent() {
           placeholder="ContactNumber"
           id="contactnumber"
         />
-       <select
+        <select
           className="form-select form-select-lg mb-3"
           aria-label=".form-select-lg example"
           style={{ width: '80%', margin: 'auto', marginTop: '7%' }}
@@ -168,7 +174,7 @@ function SignupResturent() {
           <option value="Hyderabad">Hyderabad</option>
         </select>
 
-    
+
         <select
           className="form-select form-select-lg mb-3"
           aria-label=".form-select-lg example"
@@ -196,10 +202,20 @@ function SignupResturent() {
             marginTop: "3%",
             width: "80%",
             border: "none",
+           
+
           }}
           onClick={createResturent}
         >
-          Submit
+
+          {loading ? (
+            <span style={{ display: "flex", alignItems: "center", gap: "8px",justifyContent: "center" }}>
+              <CircularProgress size={20} style={{ color: "white" }} />
+              <span>Creating...</span>
+            </span>
+          ) : (
+            "Create Resturent"
+          )}
         </button>
       </div>
     </div>
